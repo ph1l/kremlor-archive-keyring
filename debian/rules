@@ -32,7 +32,7 @@ binary-indep: checkroot
 
 	$(install_dir) debian/tmp/usr/share/keyrings/
 	$(install_file) keyrings/ocemr-archive-keyring.gpg debian/tmp/usr/share/keyrings/
-	#$(install_file) keyrings/ocemr-archive-removed-keys.gpg debian/tmp/usr/share/keyrings/
+	$(install_file) keyrings/ocemr-archive-removed-keys.gpg debian/tmp/usr/share/keyrings/
 
 	$(install_dir) debian/tmp/usr/share/doc/ocemr-archive-keyring/
 	$(install_file) README debian/tmp/usr/share/doc/ocemr-archive-keyring/
