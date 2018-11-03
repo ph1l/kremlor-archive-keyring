@@ -22,7 +22,7 @@ build:
 clean: checkroot
 	make clean
 	-rm -f *.bak *~ */*~ debian/files* debian/*substvars
-	-rm -rf debian/tmp debian/kremlor-archive-keyring-udeb
+	-rm -rf debian/tmp debian/ocemr-archive-keyring-udeb
 	dh_clean
 
 binary-indep: checkroot
@@ -31,32 +31,32 @@ binary-indep: checkroot
 	$(install_script) debian/postinst debian/tmp/DEBIAN/
 
 	$(install_dir) debian/tmp/usr/share/keyrings/
-	$(install_file) keyrings/kremlor-archive-keyring.gpg debian/tmp/usr/share/keyrings/
-	#$(install_file) keyrings/kremlor-archive-removed-keys.gpg debian/tmp/usr/share/keyrings/
+	$(install_file) keyrings/ocemr-archive-keyring.gpg debian/tmp/usr/share/keyrings/
+	#$(install_file) keyrings/ocemr-archive-removed-keys.gpg debian/tmp/usr/share/keyrings/
 
-	$(install_dir) debian/tmp/usr/share/doc/kremlor-archive-keyring/
-	$(install_file) README debian/tmp/usr/share/doc/kremlor-archive-keyring/
-	$(install_file) debian/changelog debian/tmp/usr/share/doc/kremlor-archive-keyring/changelog
-	gzip -9v debian/tmp/usr/share/doc/kremlor-archive-keyring/*
-	$(install_file) debian/copyright debian/tmp/usr/share/doc/kremlor-archive-keyring/
+	$(install_dir) debian/tmp/usr/share/doc/ocemr-archive-keyring/
+	$(install_file) README debian/tmp/usr/share/doc/ocemr-archive-keyring/
+	$(install_file) debian/changelog debian/tmp/usr/share/doc/ocemr-archive-keyring/changelog
+	gzip -9v debian/tmp/usr/share/doc/ocemr-archive-keyring/*
+	$(install_file) debian/copyright debian/tmp/usr/share/doc/ocemr-archive-keyring/
 
-	dpkg-gencontrol -pkremlor-archive-keyring -isp
+	dpkg-gencontrol -pocemr-archive-keyring -isp
 	chown -R root.root debian/tmp
 	chmod -R go=rX debian/tmp
-	dh_md5sums -pkremlor-archive-keyring -Pdebian/tmp
+	dh_md5sums -pocemr-archive-keyring -Pdebian/tmp
 	dpkg --build debian/tmp ..
 
-	#-rm -rf debian/kremlor-archive-keyring-udeb
-	#$(install_dir) debian/kremlor-archive-keyring-udeb/DEBIAN/
+	#-rm -rf debian/ocemr-archive-keyring-udeb
+	#$(install_dir) debian/ocemr-archive-keyring-udeb/DEBIAN/
 
-	#$(install_dir) debian/kremlor-archive-keyring-udeb/usr/share/keyrings/
-	#$(install_file) keyrings/kremlor-archive-keyring.gpg debian/kremlor-archive-keyring-udeb/usr/share/keyrings/
-	#install -m 755 debian/kremlor-archive-keyring-udeb.postinst debian/kremlor-archive-keyring-udeb/DEBIAN/postinst
+	#$(install_dir) debian/ocemr-archive-keyring-udeb/usr/share/keyrings/
+	#$(install_file) keyrings/ocemr-archive-keyring.gpg debian/ocemr-archive-keyring-udeb/usr/share/keyrings/
+	#install -m 755 debian/ocemr-archive-keyring-udeb.postinst debian/ocemr-archive-keyring-udeb/DEBIAN/postinst
 
-	#dpkg-gencontrol -nkremlor-archive-keyring-udeb_$(VERSION)_all.udeb -pkremlor-archive-keyring-udeb -Tdebian/kremlor-archive-keyring-udeb.substvars -Pdebian/kremlor-archive-keyring-udeb -isp
-	#chown -R root.root debian/kremlor-archive-keyring-udeb
-	#chmod -R go=rX debian/kremlor-archive-keyring-udeb
-	#dpkg --build debian/kremlor-archive-keyring-udeb ../kremlor-archive-keyring-udeb_$(VERSION)_all.udeb
+	#dpkg-gencontrol -nocemr-archive-keyring-udeb_$(VERSION)_all.udeb -pocemr-archive-keyring-udeb -Tdebian/ocemr-archive-keyring-udeb.substvars -Pdebian/ocemr-archive-keyring-udeb -isp
+	#chown -R root.root debian/ocemr-archive-keyring-udeb
+	#chmod -R go=rX debian/ocemr-archive-keyring-udeb
+	#dpkg --build debian/ocemr-archive-keyring-udeb ../ocemr-archive-keyring-udeb_$(VERSION)_all.udeb
 
 binary-arch:
 

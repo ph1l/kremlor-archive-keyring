@@ -3,6 +3,5 @@
 set -e
 
 if which apt-key > /dev/null; then
-    apt-key add /usr/share/keyrings/kremlor-archive-keyring.gpg
+    apt-key add /usr/share/keyrings/ocemr-archive-keyring.gpg
 fi
-

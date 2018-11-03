@@ -1,11 +1,11 @@
-README for the kremlor-archive-keyring package
-==============================================
+README for the ocemr-archive-keyring package
+============================================
 
 
 Introduction
 ------------
 
-The kremlor.net Debian archive signs its Release files.
+The OCEMR Debian archive signs its Release files.
 
 More information about the archive authentication feature can be found 
 here: http://wiki.debian.org/SecureApt
